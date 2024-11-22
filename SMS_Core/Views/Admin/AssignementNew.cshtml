@@ -1,0 +1,98 @@
+﻿@model SMS_Core.Models.tblAssignment
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="keywords" content="Assignment, Submission, Form" />
+    <meta name="description" content="Assignment submission form using ASP.NET MVC" />
+    <title>Assignments</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css" />
+
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .form-horizontal .form-group { margin-bottom: 15px; }
+        .btn { margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <div style="font-size:12px; height:40px; margin-left:10px">
+        <img src="~/_imgs/grid/SaveAndClose_16.png" alt="Save Icon" />
+        <a href="@Url.Action("AssignmentList", "Admin")" class="btn btn-primary">SAVE & CLOSE</a>
+    </div>
+
+    <h3>&nbsp;&nbsp;Assignment New</h3>
+
+    <div class="panel">
+        <div class="panel-body">
+            @using (Html.BeginForm("AssignementNew", "Admin", FormMethod.Post, 
+                new { enctype = "multipart/form-data", id = "frm", @class = "form-horizontal" }))
+            {
+                <div class="form-group">
+                    <label class="control-label col-lg-2">Assignment Title</label>
+                    <div class="col-lg-4">
+                        @Html.TextBoxFor(m => m.AssignTitle, new { @class = "form-control input-sm" })
+                        @Html.ValidationMessageFor(m => m.AssignTitle, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-lg-2">Assignment Description</label>
+                    <div class="col-lg-4">
+                        @Html.TextBoxFor(m => m.AssignDescription, new { @class = "form-control input-sm" })
+                        @Html.ValidationMessageFor(m => m.AssignDescription, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-lg-2">Course Name</label>
+                    <div class="col-lg-4">
+                        @Html.DropDownListFor(model => model.CourseName, 
+                            new SelectList(ViewBag.crc, "AcadamicCourceName", "AcadamicCourceName"), 
+                            new { @class = "form-control input-sm chosen-select", id = "CourseName" })
+                        @Html.ValidationMessageFor(m => m.CourseName, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-lg-2">Batch Name</label>
+                    <div class="col-lg-4">
+                        @Html.DropDownListFor(model => model.BatchName, 
+                            new SelectList(ViewBag.bat, "BatchName", "BatchName"), 
+                            new { @class = "form-control input-sm chosen-select" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-lg-2">Subjects</label>
+                    <div class="col-lg-4">
+                        @Html.DropDownListFor(model => model.Subject, 
+                            new SelectList(ViewBag.sbu, "SubjectName", "SubjectName"), 
+                            new { @class = "form-control input-sm chosen-select" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-lg-2">Date of Submission</label>
+                    <div class="col-lg-4">
+                        @Html.TextBoxFor(model => model.DateofSubmission, 
+                            new { @class = "form-control input-sm", id = "DateofSubmission", type = "date" })
+                        @Html.ValidationMessageFor(m => m.DateofSubmission, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-lg-2">&nbsp;</label>
+                    <div class="col-lg-4">
+                        <button type="submit" class="btn btn-primary">Save & Close</button>
+                        <button type="button" class="btn btn-secondary" onclick="location.reload();">
+                            <i class="icon-refresh icon-white"></i> Refresh
+                        </button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>

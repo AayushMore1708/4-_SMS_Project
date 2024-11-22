@@ -1,0 +1,32 @@
+﻿@page "/counter"
+
+<PageTitle>IFrame</PageTitle>
+
+<h1>Counter</h1>
+
+<button class="btn btn-primary">Click me</button>
+
+<style>
+    /* Set the body and parent elements to have no margin or padding */
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+
+    /* Make the iframe fill the entire viewport */
+    .fullscreen-iframe {
+        width: 100%;
+        height: 100vh; /* full viewport height */
+        border: none; /* Remove border */
+    }
+</style>
+
+<!-- Add your iframe here -->
+<iframe class="fullscreen-iframe" src="https://example.com"></iframe>
+
+@code {
+    // Add any C# logic here if necessary
+    // You can define variables, methods, or lifecycle events for the page
+}

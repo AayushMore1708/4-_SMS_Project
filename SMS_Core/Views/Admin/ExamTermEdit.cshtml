@@ -1,0 +1,66 @@
+﻿@model IEnumerable<SMS_Core.Models.tblExamTerm>
+
+@{
+    Layout = "_Layout"; // If you don't need a layout, change this to null
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="jQuery Splitter, Splitter Widget, Splitter, jqxSplitter" />
+    <meta name="description" content="This page demonstrates splitter's events" />
+    <title>Exam Terms List</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="~/Content/css/chosen.css">
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">Exam Terms List</h2>
+
+        <table class="table table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Exam ID</th>
+                    <th>Term Name</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Exam Name</th>
+                    <th>Academic Year</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Any())
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.ExamId</td>
+                            <td>@item.TermName</td>
+                            <td>@item.StartDate?.ToString("yyyy-MM-dd")</td>
+                            <td>@item.EndDate?.ToString("yyyy-MM-dd")</td>
+                            <td>@item.ExamName</td>
+                            <td>@item.AcadamicYear</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="6" class="text-center">No records found.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

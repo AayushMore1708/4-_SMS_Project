@@ -1,0 +1,60 @@
+# .NET Core
+[Dd]ebug/
+[Dd]ebugPublic/
+[Dd]ist/
+[Dd]ebug-*.*.*
+[Dd]ist-*.*.*
+[Dd]ebug-*.[Cc]ache/
+
+# User-specific files
+.idea/
+.vscode/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer logs
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows Installer logs
+*.cab
+*.msi
+*.msm
+*.msp
+
+# .NET Core
+bin/
+obj/
+
+# ASP.NET Core
+wwwroot/
+node_modules/
+
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.userprefs
+*.sln.docstates
+
+# Tye
+.tye/
+
+# Generated files from Blazor WebAssembly build
+blazor.boot.json
+blazor.webassembly.js
+
+# JetBrains Rider
+.idea/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
